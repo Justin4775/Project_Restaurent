@@ -1,0 +1,221 @@
+.main-bg{
+  background-image: url(./images/parallax-img-1.jpg);
+  padding: 30px;
+}
+.login-main-bg{
+  background-image: url(./images/parallax-img-1.jpg);
+  height: 100vh;
+}
+.form-bg{
+  background-color: black;
+  opacity: 60%;
+  padding: 50px;
+}
+
+
+
+.navbar{
+  position: sticky;
+}
+.navText{
+  color:rgb(171, 171, 171);
+  text-decoration: none;
+}
+:hover.navText{
+  color: white;
+  text-decoration: underline;
+  text-underline-position: under;
+  transition: 0.5s;
+}
+.active{
+  font-size: 18px;
+  font-weight: bold;
+  color: white; 
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+
+.restaurent-icon{
+  height: 100px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
+}
+.text-brown{
+  color: #c59d5f;
+}
+.ad-bg2{
+  background-image: url(../public/images/customer/custom-info-box-bg.jpg);
+  height: 50vh;
+  width: 80vw;
+}
+.bg-split{
+  background-color:  rgb(241, 241, 241);
+  height: 60vh;
+}
+.bg-ad3{
+  background-image: url(../public/images/customer/parallax-img-1.jpg);
+  background-size:cover;
+  height: 75vh;
+}
+.mt-10{
+  margin-top: 100px;
+}
+.mt-15{
+  margin-top: 150px;
+}
+.splitImg{
+  height: 75vh;
+  margin-top: 10vh;
+}
+.fs-counter-icon{
+  font-size: 80px;
+  opacity: 30%;
+}
+.stunning-things-div{
+  padding: 30px;
+}
+.st-grey-div{
+  background-color: rgb(241, 241, 241);
+}
+.st-icons{
+  font-size: 60px;
+}
+
+.home-reservation-bg{
+  background-image: url(../public/images/customer/parallax-img-1.jpg);
+  height: 75vh;
+}
+.w-30{
+  width: 30vw;
+}
+
+.reservation-coupen{
+  border-color: #c59d5f;
+  border-width: 4px;
+  border-style: dashed;
+  padding: 20px;
+  width: 50vw;
+}
+:hover.make-reservation-text{
+  color: white;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-color: #c59d5f;
+  transition: 0.5s;
+}
+.discount-text{
+  text-align: center;
+  color: #c59d5f;
+  margin-top: 20px;
+}
+.bg-transparent{
+  background-color: transparent;
+}
+
+
+
+.reservation-bg{
+  background-image: radial-gradient(ellipse, #0000, rgb(0, 0, 0)),url(../public/images/customer/reservation_bg_image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.reserve-table-btn{
+  background-color: rgb(145, 107, 36);
+  color: white;
+  font-weight: 500;
+  border: none;
+  text-align: center;
+  width: 75%;
+  padding: 7px;
+}
+:hover.reserve-table-btn{
+  background-color: white;
+  color: rgb(145, 107, 36);
+  font-weight: 500;
+  border: none;
+  text-align: center;
+  width: 75%;
+  padding: 5px;
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(145, 107, 36);
+}
+
+
+
+
+.start-order-btn{
+  background-color: rgb(145, 107, 36);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  margin-left: 0px;
+  padding: 5px;
+}
+.flex-row-center{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.flex-column-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.welcome{
+  border-color: #ffffff;
+  border-width: 20px;
+  border-style: solid;
+}
+.welcome-bg{
+  background-color: #F8F8F8;
+}
+.menu{
+  margin-bottom: 30px;
+  padding: 20px;
+}
+.varaity-card-bg{
+  background-color: rgb(233, 233, 233);
+}
+.offers-div{
+  height: 500px;
+}
+.offer-red-bg{
+  background-color:rgb(145, 107, 36);
+}
+.offers{
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgb(37, 37, 37);
+}
+
+
+
+.contact-us-section{
+  padding: 20px;
+  background-color: rgb(37, 37, 37);
+}
+.send-email-input{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-right: 0px;
+}
+.send-icon-button{
+  margin-left: 0px;
+  border: none;
+}
+.verticalLine {
+  height: 200px;
+  border-right: 1px solid white;
+  margin-top: 40px;
+}
+.footer{
+  background-color: black;
+}
+
+.addressfieldheight{
+  height: 150px;
+}
