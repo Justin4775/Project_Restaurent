@@ -7,7 +7,7 @@ export default class Signin extends React.Component{
     state={
         fullname : "",
         email : "",
-        // password : "",
+        password : "",
         mobile : "",
         address:"",
         pin:""
@@ -18,9 +18,9 @@ export default class Signin extends React.Component{
     getEmail=(Event)=>{
         this.setState({email:Event.target.value});
     }
-    // getPassword=(Event)=>{
-    //     this.setState({password:Event.target.value});
-    // }
+    getPassword=(Event)=>{
+        this.setState({password:Event.target.value});
+    }
     getMobile=(Event)=>{
         this.setState({mobile:Event.target.value});
     }
@@ -37,7 +37,8 @@ export default class Signin extends React.Component{
            nEmail:this.state.email,
            nMobile:this.state.mobile,
            nAddress:this.state.address,
-           nPin:this.state.pin
+           nPin:this.state.pin,
+           nPass:this.state.password
         };
         Axios.post("http://localhost:3001/sign",signindata).then((response)=>{
             if(response.data.status1 === "Error")
@@ -67,10 +68,8 @@ export default class Signin extends React.Component{
                                     <input id="fullname" type="text" class="form-control" onChange={this.getFullname} required/>
                                     <label for="email">E-mail</label>
                                     <input id="email" type="text" class="form-control" onChange={this.getEmail} required/>
-                                    {/* <label for="password1">Create Password</label>
-                                    <input id="password1" type="password" class="form-control"/>
-                                    <label for="password2">Re-Enter Password</label>
-                                    <input id="password2" type="password" class="form-control" onChange={this.getPassword}/> */}
+                                    <label for="password2">Create Password</label>
+                                    <input id="password2" type="password" class="form-control" onChange={this.getPassword}/>
                                     <label for="mobile">Mobile</label>
                                     <input id="mobile" type="text" class="form-control" maxLength={10} onChange={this.getMobile} required/> 
                                     <label for="address">Address</label>

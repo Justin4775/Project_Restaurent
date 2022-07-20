@@ -71,7 +71,7 @@ export default class Reservation extends React.Component{
                                 <img src="/images/customer/reservation-min.jpg" class="col-5 d-none d-lg-block" alt="..."/>
                                         
                                 <div class="col-12 col-lg-5 flex-row-center bg-white p-3">
-                                    <div>
+                                    <form>
                                         <h2 class="text-brown">Let Us Serve You Better</h2>
                                         <h6 class="mb-5">Don't wait in a line to enjoy your meal. Reserve a table in advance with us.</h6>
                                         <label for="floatingSelectGrid" class="mb-3">Location :</label>
@@ -108,17 +108,17 @@ export default class Reservation extends React.Component{
                                         </div>
                                     
                                         <div class="flex-row-center mt-5">
-                                            <button class="reserve-table-btn" onClick={this.availability.bind(this)}>Show Availability</button>
+                                            <button class="reserve-table-btn" onClick={this.bookTable.bind(this)}>Reserve Table</button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="availability bg-secondary p-3">
+                        {/* <div class="availability bg-secondary p-3">
                             <h1 class="text-center">
                                 Available Tables & Chairs
                             </h1>
-                        </div>
+                        </div> */}
                         <div class="mt-5 p-5">
                             <h1 class="text-center mb-5">Private Dinning & Events</h1>
                             <div class="flex-row-center gap-5">

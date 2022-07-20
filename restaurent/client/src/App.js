@@ -14,9 +14,10 @@ import Server from './components/server';
 import Cook from './components/cook';
 import AdminLogin from './components/admin_login';
 import AdminDashboard from './components/admin_dashboard';
-import TableAvailability from './components/table_availability';
-
-
+import TableAvailability from './components/admin_table_availability';
+import Users from './components/adminUsers';
+import TodaysBookings from './components/todays_bookings';
+import { MakeTableAvailable } from './components/make_table_availability';
 
 
 
@@ -39,7 +40,10 @@ export default class App extends React.Component{
             <Route path = "/cook" element = {<Cook/>}/>
             <Route path = "/admin_login" element = {<AdminLogin/>}/>
             <Route path = "/admin_dashboard" element = {<AdminDashboard/>}/>
-            <Route path = "/table_availability" element = {<TableAvailability/>}/>
+            <Route path = "/admin_table_availability" element = {<TableAvailability/>}/>
+            <Route path = "/adminUsers" element = {<Users/>}/>
+            <Route path = "/todays_bookings" element = {<TodaysBookings/>}/>
+            <Route path = "/make_table_availability" element = {<MakeTableAvailable/>}/>
           </Routes>
         </BrowserRouter>
       </div>

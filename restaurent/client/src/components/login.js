@@ -22,14 +22,22 @@ export default class Login extends React.Component{
             nemail:this.state.email,
             npassword:this.state.password,
         };
-        Axios.post("http://localhost:3001/test",logindata).then((response)=>{
+        Axios.post("http://localhost:3001/login",logindata).then((response)=>{
             let status = response.data.status;
             let role = response.data.role;
             if (status === "pass")
             {
-                if (role === 'customer')
+                if (role === "customer")
                 {
                     window.location.href = "./home";
+                }
+                else if (role === "admin")
+                {
+                    window.location.href = "./admin_dashboard";
+                }
+                else if(role === "Error")
+                {
+                    alert("E-mail or Password Incorrect");
                 }
             }
             else
@@ -47,7 +55,7 @@ export default class Login extends React.Component{
             <div class="row login-main-bg">
                 <div class="col-12 d-flex flex-column justify-content-center">
                     <div class="col-12 d-flex flex-row justify-content-center">                        
-                        <div class="form-bg w-50 p-3 d-grid gap-3">
+                        <div class="form-bg col-10 col-lg-6 p-3 d-grid gap-3">
                             <div class="d-grid gap-3">
                                 <h1 class="text-center text-decoration-underline">Login</h1>
                                 <label for="inp1">Email</label>
@@ -65,7 +73,7 @@ export default class Login extends React.Component{
                             <div  class="d-flex flex-row">
                                 <p>New User?</p>
                                 <Link to="/signin">
-                                    <a href="#" class="ms-2 text-warning">Signup</a>
+                                    <p class="ms-2 text-primary">Signup</p>
                                 </Link>
                             </div>
                         </div>

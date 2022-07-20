@@ -15,18 +15,17 @@ const connect = db.createConnection({
     database:  "project_restaurent"
 });
 
-App.post("/test",(request,response)=>{
+App.post("/login",(request,response)=>{
     const email = request.body.nemail;
     const password = request.body.npassword;
     
 
 
-    const val = connect.query("select email_id,password,role from login where email_id = ?",[email],
+    const val = connect.query("select email_id,password,role from login",
     function(error,rows){
         if (error)
         {
-            const s = {status :'error'};
-            response.send(s);
+            response.send({status :"Error", role :"Error"});
         }
         else{
             const user1 = rows[0].email_id;
@@ -34,13 +33,21 @@ App.post("/test",(request,response)=>{
             const role1 = rows[0].role;
 
 
-            if(email == user1 && password == pass1)
+            if(email === user1 && password === pass1)
             {
-                if(role1 == "customer")
+                if(role1 === "customer")
                 {
-                    response.send({status :'pass', role:'customer'});
+                    response.send({status :"pass", role:"customer"});
+                }
+                else if(role1 === "admin")
+                {
+                    response.send({status:"pass", role:"admin"});
                 }
                 
+            }
+            else
+            {
+                response.send({status:"fail", role:"none"});
             }
         }
     }) 
@@ -52,15 +59,25 @@ App.post("/sign",(request,response)=>{
     const mobile = request.body.nMobile;
     const address = request.body.nAddress;
     const pin = request.body.nPin;
-    const password = mobile + "@pass";
-    const role = "customer"
+    const password = request.body.nPass;
+    const role = "customer";
+    
+
+    console.log(fullname);
+    console.log(email);
+    console.log(mobile);
+    console.log(address);
+    console.log(pin);
+    console.log(password);
+    console.log(role);
+
 
     
     const val2 = connect.query("insert into customer_signin (user_name,email_id,mobile_no,address,zip) values (?,?,?,?,?)",[fullname,email,mobile,address,pin],
     function(err,result){
         if(err)
         {
-            response.send({status:"Error"});
+            console.log("Error")
         }
         else
         {
@@ -77,6 +94,20 @@ App.post("/sign",(request,response)=>{
         }
     })
 });
+
+App.get('/adminHome', (request,response)=>{
+    connect.query('select * from customer_signin',(err,result,field)=> {
+        if (err) throw err;
+        response.send(result);
+    })
+    
+})
+
+
+
+
+
+
 
 App.post("/reserve",(request,response)=>
 {
@@ -107,38 +138,29 @@ App.post("/reserve",(request,response)=>
     })
 });
 
+let date = Date.now();
+let TodaysDate_ob = new Date(date);
+let TodaysDate = (TodaysDate_ob.getFullYear() + "-" + (TodaysDate_ob.getMonth()+1) + "-" + TodaysDate_ob.getDate());
 
-App.post("/adminLogin",(request,response)=>
-{
-    const adminUserNAme = request.body.nAdminUserName;
-    const adminPassword = request.body.nAdminPassword
 
-    console.log(adminUserNAme);
-    console.log(adminPassword);
-
-    const val4 = connect.query("select user_name,password from admin_login where user_name = ?",[adminUserNAme],
-    function(error,rows){
-        if (error)
-        {
-            const res = {status :'error'};
-            response.send(res);
-        }
-        else{
-            const dbUsername = rows[0].user_name;
-            const dbPassword = rows[0].password;
-
-            if(adminUserNAme == dbUsername && adminPassword == dbPassword)
-            {
-                const res = {status :'pass'};
-                response.send(res);
-            }
-            else{
-                response.send({status:'Error'});
-            }
-        }
+App.get('/admin_table_availability', 
+function(request,response){
+    connect.query('select * from reservation',(err,result,field)=> {
+        if (err) throw err;
+        response.send(result);
     })
 
 });
+
+App.get('/todays_bookings', (req,res)=>{
+    connect.query('select * from reservation where visit_date = ?',[TodaysDate],
+    function(err,result,field) {
+        if (err) throw err;
+        res.send(result);
+    })
+
+});
+
 
 
 App.listen(3001);

@@ -14,8 +14,10 @@
 
 
 
-.navbar{
+.navbar-position{
   position: sticky;
+  top: 0px;
+  z-index: 98;
 }
 .navText{
   color:rgb(171, 171, 171);
@@ -219,3 +221,7 @@
 .addressfieldheight{
   height: 150px;
 }
+
+/* .no-underline{
+  text-decoration: none;
+} */

@@ -4,14 +4,14 @@ import {Link,NavLink} from 'react-router-dom';
 
 export default class Navbar extends React.Component{
     state = {
-        isLoggedIn : false
+        isLoggedIn : true
     };
     render(){
         const {isLoggedIn} = this.state
         return(
-            <div>
+            <div class="navbar-position">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-                    <a class="navbar-brand ms-5" href="#">Navbar</a>
+                    <a class="navbar-brand text-decoration-underline fs-3" href="#">KUDIL</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -20,9 +20,9 @@ export default class Navbar extends React.Component{
                         <NavLink className="navText" to = "/home">Home</NavLink>
                         <NavLink className="navText" to = "/menu">Menu</NavLink>
                         <NavLink className="navText" to = "/reservation">Reservation</NavLink>
-                        <NavLink className="navText" to = "/Online_order">Order Online</NavLink>
+                        <NavLink className="navText" to = "/Online_order">Order Now</NavLink>
                     </div>
-                    <div class="ml-auto me-5 d-none d-lg-block">
+                    <div class="ml-auto d-none d-lg-block">
                         {isLoggedIn &&
                             <Link to = "/login">
                                 <button class="btn btn-outline-secondary" ><i class="fa-solid fa-right-to-bracket"></i>Login</button>

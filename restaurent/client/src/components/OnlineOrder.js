@@ -46,7 +46,7 @@ export default class OnlineOrder extends React.Component{
                                 <div class="col-12 col-md-6 col-lg-3 flex-row-center">
                                     <div class="varaity-card-bg m-2">                        
                                         <img src={require('../images/2.jpg')} class="w-100 food-varaity-img"/>
-                                        <h3 class="text-center m-3">TANDOOR LEG</h3>
+                                        <h3 class="text-center m-3">TANDOOR LEG </h3>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 flex-row-center">

@@ -1,6 +1,9 @@
 import React from 'react';
 import Footer from './footer';
 import Navbar from './navbar';
+import Img1 from "../images/2.jpg";
+import './home.css';
+
 
 
 
@@ -18,7 +21,7 @@ export default class Home extends React.Component{
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="/images/customer/one.jpg" class="d-block w-100" alt="..."/>
+                    <img src="/images/customer/two.jpg" class="d-block w-100" alt="..."/>
                     </div>
                     <div class="carousel-item">
                     <img src="/images/customer/two.jpg" class="d-block w-100" alt="..."/>

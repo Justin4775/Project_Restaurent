@@ -1,42 +1,49 @@
 import React from 'react';
+import 'font-awesome/css/font-awesome.min.css';
+import {Link,NavLink} from 'react-router-dom';
 
 export default class AdminNavbar extends React.Component{
+    state = {
+        isLoggedIn : true
+    };
     render(){
+        const {isLoggedIn} = this.state
         return(
-            <div>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <div class="container-fluid">
-                        <a class="navbar-brand fs-3" href="#">KUDIL</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-position">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark p-3">
+                    <a class="navbar-brand text-decoration-underline fs-3" href="#">KUDIL</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-5">
-                            <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="/table_availability">Table Availability</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider"/></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1">Disabled</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button class="btn btn-outline-light" type="submit">Search</button>
-                        </form>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav m-auto gap-3">
+                            <NavLink className="navText" to = "/adminhome">Home</NavLink>
+                            <NavLink className="navText" to = "/adminUsers">Users</NavLink>
+                            <NavLink className="navText" to = "/admin_table_availability">Table Reservation</NavLink>
+                        </div>
+                        <div class="ml-auto d-none d-md-block">
+                            {isLoggedIn &&
+                                <Link to = "/login">
+                                    <button class="btn btn-outline-secondary" ><i class="fa-solid fa-right-to-bracket"></i>Login</button>
+                                </Link>
+                            }
+                            {!isLoggedIn &&
+                                <Link to = "/login">
+                                    <button class="btn btn-outline-secondary" ><i class="fa-solid fa-right-to-bracket"></i>Log Out</button>
+                                </Link>
+                            }
+                        </div>
+                        <div class="ml-auto me-5 d-block d-md-none mt-5">
+                            {isLoggedIn &&
+                                <Link to = "/login">
+                                    <button class="btn btn-outline-secondary" ><i class="fa-solid fa-right-to-bracket"></i>Login</button>
+                                </Link>
+                            }
+                            {!isLoggedIn &&
+                                <Link to = "/login">
+                                    <button class="btn btn-outline-secondary" ><i class="fa-solid fa-right-to-bracket"></i>Log Out</button>
+                                </Link>
+                            }
                         </div>
                     </div>
                 </nav>
